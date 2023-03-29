@@ -1,5 +1,8 @@
 package com.kreitek.files;
 
+import com.kreitek.dependencias.FileSystemItem;
+import com.kreitek.dependencias.FileSystemItemBase;
+
 import java.util.ArrayList;
 import java.util.List;
 

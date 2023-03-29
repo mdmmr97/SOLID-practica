@@ -1,10 +1,6 @@
 package com.kreitek.service;
 
-import com.kreitek.files.Directory;
-import com.kreitek.files.File;
-import com.kreitek.files.FileSystemItem;
-
-import java.util.List;
+import com.kreitek.dependencias.FileSystemItem;
 
 public class FileManager {
 
