@@ -10,18 +10,13 @@ public class FileManager {
 
     public static int calculateSize(FileSystemItem fileSystemItem) {
         int totalSize = 0;
-
-        if (fileSystemItem instanceof File) {
-            totalSize = fileSystemItem.getSize();
-        } else if (fileSystemItem instanceof Directory) {
-            for (FileSystemItem item : fileSystemItem.listFiles()) {
-                totalSize += calculateSize(item);
-            }
-        }
-
-        return totalSize;
+        return totalSize = fileSystemItem.getSize();
     }
 
+    /*
+
+    Este metodo esta duplicado, y aparte no cumpliria con el principio de inversion de dependencias
+    porqu
     public static int calculateSize(List<FileSystemItem> files) {
         int totalSize = 0;
 
@@ -35,6 +30,8 @@ public class FileManager {
 
         return totalSize;
     }
+
+     */
 
     // Aquí habría otros métodos para gestionar ficheros y directorios:
     // Crear ficheros, mover ficheros, eliminar ficheros, etc.

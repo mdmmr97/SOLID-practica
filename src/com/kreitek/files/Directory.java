@@ -39,7 +39,11 @@ public class Directory extends FileSystemItemBase implements FileSystemItem {
 
     @Override
     public int getSize() {
-        throw new UnsupportedOperationException(NO_ES_VALIDO_PARA_DIRECTORIOS);
+        int directorySize = 0;
+        for (FileSystemItem item : files) {
+            directorySize += item.getSize();
+        }
+        return directorySize;
     }
 
     @Override
