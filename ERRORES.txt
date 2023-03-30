@@ -1,8 +1,17 @@
 PRINCIPIO DE RESPONSABILIDAD UNICA
-- Metodo sin usar en la clase FileManager
+- Metodo sin usar en la clase FileManager:
+Lo he comentado ya que no estaba en uso
+
 - Clase File contiene metodos que no puede utilizar. (Relacionado con el error de las interfaces)
 - Clase Directory contiene metodos que no puede utilizar. (Relacionado con el error de las interfaces)
-- Clase File puede separarse en dos clases: informacion y conversion
+Para evitarque en ambas clases haya metodos que no estan siendo utilizados, primero he dividido la interfaz que contenia
+todos los metodos de las dos clases en tres interfaces. Implementamos las nuevas interfaces en las clases y borramos los
+metodos que no se usan.
+
+- Clase File puede separarse en dos clases: File y Conversion
+Extraigo los dos metodos de la clase a una clase Conversion que he hecho nueva. En la clase he refactorizado en el codigo
+la extraccion del nombre del fichero y le he indicado que herede de la clase File.
+
 
 PRINCIPIO ABIERTO/CERRADO
 
@@ -10,6 +19,12 @@ PRINCIPIO DE SUSTITUCION DE LISKOV
 
 PRINCIPIO DE SEGREGACION DE INTERFACES
 - Interfaz FileSystemItem abarca demasidas cosas (separar metodos entre otras interfaces)
+Teniamos una interfaz y clases abstractas que reunian todos los metodos de las clases. Le que he hecho ha sido eliminar de
+la clase abstracta aquellos metodos que no serian comunes en ambas clases.
+Luego en la interfaz he creado dos interfaces que van a heredar de la que teniamos, y que en cada una de las interfaces vamos
+a guardar los metodos individuales de las clases.
+Las interfaces quedarian una interfaz con los metodos comunes a las dos clases, y dos interfaces con los metodos de cada clase.
 
 PRINCIPIO DE INVERSION DE DEPENDENCIAS
 - Las interfaces estan en la misma carpeta que el resto de clases
+He creado una carpeta llamada dependencia donde he guardado las interfaces y clases abstractas
