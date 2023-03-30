@@ -1,13 +1,15 @@
 package com.kreitek.utils;
 
+import com.kreitek.dependencias.Idirectory;
+import com.kreitek.dependencias.Ifile;
 import com.kreitek.files.Directory;
 import com.kreitek.files.File;
 import com.kreitek.dependencias.FileSystemItem;
 
 public class FileSystemBuilder {
 
-    private final FileSystemItem root;
-    private FileSystemItem currentDirectory;
+    private final Idirectory root;
+    private Idirectory currentDirectory;
 
     public static FileSystemBuilder getBuilder() {
         return new FileSystemBuilder();
@@ -19,7 +21,7 @@ public class FileSystemBuilder {
     }
 
     public FileSystemBuilder addFile(String name, int size) {
-        FileSystemItem file = new File(currentDirectory, name);
+        Ifile file = new File(currentDirectory, name);
         file.open();
         file.write(new byte[size]);
         file.close();
@@ -28,7 +30,7 @@ public class FileSystemBuilder {
     }
 
     public FileSystemBuilder addDirectory(String name) {
-        FileSystemItem directory = new Directory(currentDirectory, name);
+        Idirectory directory = new Directory(currentDirectory, name);
         currentDirectory.addFile(directory);
         currentDirectory = directory;
         return this;
@@ -36,11 +38,10 @@ public class FileSystemBuilder {
 
     public FileSystemBuilder upOneDirectory() {
         if (currentDirectory.getParent() != null) {
-            currentDirectory = currentDirectory.getParent();
+            currentDirectory = (Idirectory) currentDirectory.getParent();
         }
         return this;
     }
-
     public FileSystemItem build() {
         return root;
     }

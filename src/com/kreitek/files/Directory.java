@@ -2,13 +2,14 @@ package com.kreitek.files;
 
 import com.kreitek.dependencias.FileSystemItem;
 import com.kreitek.dependencias.FileSystemItemBase;
+import com.kreitek.dependencias.Idirectory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Directory extends FileSystemItemBase implements FileSystemItem {
+public class Directory extends FileSystemItemBase implements Idirectory {
 
-    private static final String NO_ES_VALIDO_PARA_DIRECTORIOS = "No es válido para directorios";
+    /*private static final String NO_ES_VALIDO_PARA_DIRECTORIOS = "No es válido para directorios";*/
     private final List<FileSystemItem> files;
 
     public Directory(FileSystemItem parent, String name) {
@@ -16,17 +17,16 @@ public class Directory extends FileSystemItemBase implements FileSystemItem {
         files = new ArrayList<>();
         // Aquí vendría lógica que rellena la lista de ficheros
     }
-
+/*
     @Override
     public String getExtension() {
         throw new UnsupportedOperationException(NO_ES_VALIDO_PARA_DIRECTORIOS);
     }
-
+*/
     @Override
     public List<FileSystemItem> listFiles() {
         return files;
     }
-
     @Override
     public void addFile(FileSystemItem file) {
         if (!files.contains(file)) {
@@ -34,7 +34,6 @@ public class Directory extends FileSystemItemBase implements FileSystemItem {
             file.setParent(this);
         }
     }
-
     @Override
     public void removeFile(FileSystemItem file) {
         files.remove(file);
@@ -48,7 +47,7 @@ public class Directory extends FileSystemItemBase implements FileSystemItem {
         }
         return directorySize;
     }
-
+/*
     @Override
     public void open() {
         throw new UnsupportedOperationException(NO_ES_VALIDO_PARA_DIRECTORIOS);
@@ -72,5 +71,5 @@ public class Directory extends FileSystemItemBase implements FileSystemItem {
 
     public void close() {
         throw new UnsupportedOperationException(NO_ES_VALIDO_PARA_DIRECTORIOS);
-    }
+    }*/
 }

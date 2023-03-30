@@ -1,9 +1,8 @@
 PRINCIPIO DE RESPONSABILIDAD UNICA
-- Metodo duplicado en la clase FileManager
-- Clase File contiene metodos que no puede utilizar
-- Clase Directory contiene metodos que no puede utilizar.
-- Clase File puede separarse en dos clases, una para propiedades y otra para acciones con los ficheros
-- Clase Directory puede separarse en dos clases, una para propiedades y otra para acciones en los directorios.
+- Metodo sin usar en la clase FileManager
+- Clase File contiene metodos que no puede utilizar. (Relacionado con el error de las interfaces)
+- Clase Directory contiene metodos que no puede utilizar. (Relacionado con el error de las interfaces)
+- Clase File puede separarse en dos clases: informacion y conversion
 
 PRINCIPIO ABIERTO/CERRADO
 
@@ -14,4 +13,3 @@ PRINCIPIO DE SEGREGACION DE INTERFACES
 
 PRINCIPIO DE INVERSION DE DEPENDENCIAS
 - Las interfaces estan en la misma carpeta que el resto de clases
-- Una sola clase abtracta para todas las clases.

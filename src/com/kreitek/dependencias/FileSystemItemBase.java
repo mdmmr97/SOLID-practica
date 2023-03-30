@@ -14,7 +14,6 @@ public abstract class FileSystemItemBase implements FileSystemItem {
         setName(name);
         setParent(parent);
     }
-
     @Override
     public String getName() {
         return name;
@@ -27,7 +26,6 @@ public abstract class FileSystemItemBase implements FileSystemItem {
         }
        this.name = name;
     }
-
     @Override
     public FileSystemItem getParent() {
         return parent;
@@ -39,12 +37,11 @@ public abstract class FileSystemItemBase implements FileSystemItem {
             throw new IllegalArgumentException("El padre solo puede ser un directorio");
         }
         if (this.parent != directory) {
-            if (this.parent != null) this.parent.removeFile(this);
+            if (this.parent != null) ((Directory) directory).removeFile(this);
             this.parent = directory;
-            if (directory != null) directory.addFile(this);
+            if (directory != null) ((Directory) directory).addFile(this);
         }
     }
-
     @Override
     public String getFullPath() {
         String path = PATH_SEPARATOR;
@@ -55,27 +52,7 @@ public abstract class FileSystemItemBase implements FileSystemItem {
         path = path + getName();
         return path;
     }
-
-    @Override
-    public abstract String getExtension();
-
-    @Override
-    public abstract List<FileSystemItem> listFiles();
-
     @Override
     public abstract int getSize();
 
-    @Override
-    public abstract void open();
-
-    @Override
-    public abstract void setPosition(int numberOfBytesFromBeginning);
-
-    @Override
-    public abstract byte[] read(int numberOfBytesToRead);
-
-    @Override
-    public abstract void write(byte[] buffer);
-
-    public abstract void close();
 }
