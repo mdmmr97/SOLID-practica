@@ -28,3 +28,5 @@ Las interfaces quedarian una interfaz con los metodos comunes a las dos clases, 
 PRINCIPIO DE INVERSION DE DEPENDENCIAS
 - Las interfaces estan en la misma carpeta que el resto de clases
 He creado una carpeta llamada dependencia donde he guardado las interfaces y clases abstractas
+- Declaracion de variable en el constructor de la Clase Directory
+He declarado la variable fuera del constructor

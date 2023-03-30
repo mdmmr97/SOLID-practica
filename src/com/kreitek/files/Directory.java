@@ -10,11 +10,10 @@ import java.util.List;
 public class Directory extends FileSystemItemBase implements Idirectory {
 
     /*private static final String NO_ES_VALIDO_PARA_DIRECTORIOS = "No es válido para directorios";*/
-    private final List<FileSystemItem> files;
+    private final List<FileSystemItem> files = new ArrayList<>();
 
     public Directory(FileSystemItem parent, String name) {
         super(parent, name);
-        files = new ArrayList<>();
         // Aquí vendría lógica que rellena la lista de ficheros
     }
 /*
